@@ -39,7 +39,8 @@ class Replayer:
             if loop < num_loops:
                 self.app.add_log_message(f"--- Loop {loop + 1}/{num_loops} ---")
                 for event in clicks_and_delays:
-                    x, y, event_type, text = event['x'], event['y'], event['type'], event.get('text', '0')
+                    x, y, event_type, text = event['x'], event['y'], event['type'], event.get("text", "")
+                    log_text = text if text else "N/A"
                     if event_type == "click":
                         pyautogui.moveTo(x, y, duration=0.4)
                         pyautogui.click()
@@ -47,7 +48,7 @@ class Replayer:
                             pyautogui.typewrite(event['text'], interval=0.1)
                     elif event_type == "scroll":
                         pyautogui.scroll(event['dy'], x=x, y=y)
-                    self.app.add_log_message(f"Evento {event_type} con : {x},{y} con valore {text}")
+                    self.app.add_log_message(f"Evento {event_type} con : {x},{y} con valore {log_text}")
                     time.sleep(event['delay'])
                 time.sleep(loop_delay)
         self.app.add_log_message("************ Fine riproduzione **********")

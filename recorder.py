@@ -101,6 +101,7 @@ class Recorder:
                 "text": self.typing
             })
             self.last_click_time = datetime.now()
+            self.app.add_log_message("Scroll salvato senza testo.")
 
     def on_press_key(self, key):
         try:

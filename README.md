@@ -3,24 +3,25 @@ python autoclicker
 
 # AutoClickerApp
 
-AutoClickerApp è un'applicazione Python per la registrazione e la riproduzione di azioni del mouse e della tastiera. Permette di registrare i clic e gli input della tastiera, salvarli in un file JSON e riprodurre le azioni registrate. L'app è pensata per eseguire automaticamente sequenze di azioni in modo ripetuto.
+AutoClickerApp is a Python application for recording and replaying mouse and keyboard actions. It allows you to record clicks and keyboard inputs, save them in a JSON file, and replay the recorded actions. The app is designed to automatically execute sequences of actions repeated
 
-## Funzionalità
 
-- **Registrazione dei Clic**: Registra i clic del mouse e le digitazioni della tastiera, insieme a eventuali ritardi.
-- **Riproduzione delle Azioni Registrate**: Esegue i clic e gli scorrimenti registrati, con supporto per i loop.
-- **Interfaccia Grafica**: Facile da usare, con pulsanti per avviare/fermare la registrazione e riprodurre le azioni.
-- **Salvataggio in JSON**: Salva le sequenze di clic e input in formato JSON per poterle riutilizzare successivamente.
+## Features
+- **Click Recording**: Records mouse clicks and keyboard inputs along with any delays.
+- **Replay Recorded Actions**: Executes the recorded clicks and scrolls, with support for loops.
+- **Graphical Interface**: Easy to use, with buttons to start/stop recording and replay actions.
+- **JSON Saving**: Saves click and input sequences in JSON format for later use.
+
 
 ## Prerequisiti
 
-Assicurati di avere Python 3.6 o superiore installato. Inoltre, il progetto utilizza le seguenti librerie:
+Ensure you have Python 3.6 or above installed. Additionally, the project uses the following libraries:
 
-- `tkinter` (incluso in Python per creare GUI)
-- `pynput` (per ascoltare e simulare eventi del mouse e della tastiera)
-- `pyautogui` (per simulare i clic del mouse e digitazioni)
+- `tkinter` (included in Python for creating GUIs)
+- `pynput` (to listen to and simulate mouse and keyboard events)
+- `pyautogui` (to simulate mouse clicks and keystrokes)
 
-Per installare le dipendenze aggiuntive, puoi usare `pip`:
+To install additional dependencies, you can use `pip`:
 
 ```bash
 pip install pynput pyautogui
@@ -30,25 +31,22 @@ Esegui l'applicazione:
 ```bash
 python autoClickerApp.py
 ```
-## Utilizzo
-- `Avvio della Registrazione`:
+## Usage
+- `Start Recording`:
 
-Premi Avvia Registrazione per iniziare a registrare clic e input della tastiera.
-I numeri inseriti con la tastiera vengono salvati per ciascun clic.
+Click Start Recording to begin recording clicks and keyboard inputs. The numbers entered on the keyboard are saved for each click.
 
-- `Interruzione della Registrazione`:
+- `Stop Recording`:
 
-Premi Esc per fermare la registrazione.
-Le azioni vengono salvate in un file JSON nella cartella specificata.
+Press Esc to stop recording. The actions are saved in a JSON file in the specified folder.
 
-- `Riproduzione delle Azioni`:
+- `Replay Actions`:
 
-Premi Riproduci per eseguire la sequenza di azioni registrate.
-Nei log, "0" viene visualizzato per i campi vuoti durante la riproduzione senza modificare i dati originali nel JSON.
+Click Play to execute the recorded sequence of actions. 
 
-- `Chiusura dell'Applicazione`:
+- `Close the Application`:
 
-Usa il pulsante Esci per chiudere l'applicazione.
+Use the Exit button to close the application.
 
-## Licenza
-Questo progetto è distribuito sotto la licenza MIT. Vedi il file LICENSE per maggiori dettagli.
+## License
+This project is distributed under the MIT License. See the LICENSE file for more details.

@@ -24,14 +24,14 @@ class Recorder:
         filename = self.app.file_entry.get() + ".json"
 
         if not folder or not filename:
-            messagebox.showerror("Errore", "Per favore, seleziona una cartella e inserisci un nome file.")
+            messagebox.showerror("Error", "the folder's path and file's name must NOT be empty.")
             return
 
         self.record_file = os.path.join(folder, filename)
         self.clicks_and_delays.clear()
         self.last_click_time = datetime.now()
 
-        self.app.add_log_message("********* Inizio registrazione **********")
+        self.app.add_log_message("******* Started recording *******")
 
         # Avvia i listener in un thread separato
         listener_thread = threading.Thread(target=self.run_listeners)
@@ -56,16 +56,16 @@ class Recorder:
 
         # Salva i clic registrati
         self.save_click_path()
-        self.app.add_log_message("********* Fine registrazione *********")
+        self.app.add_log_message("******* Recording Finished *********")
 
     def save_click_path(self):
         if self.clicks_and_delays:
             try:
                 with open(self.record_file, 'w') as file:
                     json.dump(self.clicks_and_delays, file, indent=4)
-                self.app.add_log_message(f"Percorso salvato in {self.record_file}")
+                self.app.add_log_message(f"Path saved into {self.record_file}")
             except Exception as e:
-                self.app.add_log_message(f"Errore di salvataggio: {e}")
+                self.app.add_log_message(f"Error on saving: {e}")
 
     def on_click(self, x, y, button, pressed):
         if pressed and self.recording:
@@ -81,9 +81,9 @@ class Recorder:
 
             # Logga l'evento di clic con o senza testo
             if self.typing:
-                self.app.add_log_message(f"Clic salvato con testo: {self.typing}")
+                self.app.add_log_message(f"Action Clic saved with text value: {self.typing}")
             else:
-                self.app.add_log_message("Clic salvato senza testo.")
+                self.app.add_log_message("Action Clic saved without text value.")
         
             # Resetta `self.typing` per il prossimo clic
             self.typing = ""
@@ -101,7 +101,7 @@ class Recorder:
                 "text": self.typing
             })
             self.last_click_time = datetime.now()
-            self.app.add_log_message("Scroll salvato senza testo.")
+            self.app.add_log_message("Scroll Action saved.")
 
     def on_press_key(self, key):
         try:
@@ -113,7 +113,7 @@ class Recorder:
     def on_press_stop(self, key):
         if key == keyboard.Key.esc:
             self.stop_recording_flag = True  # Imposta il flag per fermare la registrazione
-            self.app.add_log_message("Registrazione interrotta dall'utente.")
+            self.app.add_log_message("Recording interrupted by User!.")
     
     def stop_recording_process(self):  # Rinomina il metodo per evitare conflitti
         """Interrompe la registrazione."""

@@ -22,34 +22,26 @@ class AutoClickerApp:
         self.load_state()
         self.setup_ui()
 
-        # Imposta il timer per chiudere la demo
-        # self.demo_duration = 600000  # 10 minuti in millisecondi
-        # self.root.after(self.demo_duration, self.demo_expired)
-
-    def demo_expired(self):
-        """Mostra un messaggio di avviso e chiude l'applicazione dopo il tempo della demo."""
-        messagebox.showinfo("Demo Scaduta", "Il periodo di prova è terminato. Grazie per aver provato la demo!")
-        self.on_close()
 
     def setup_ui(self):
         # Configura la GUI
         self.root.title("Autoclicker/Mouse Simulator by TSEKOS")
         self.root.configure(bg="light blue")
         
-        tk.Label(self.root, text="Cartella di salvataggio:").grid(row=0, column=0, padx=10, pady=10)
+        tk.Label(self.root, text="Saving Folder:").grid(row=0, column=0, padx=10, pady=10)
         self.folder_entry = tk.Entry(self.root, width=70)
         self.folder_entry.grid(row=0, column=1)
-        tk.Button(self.root, text="Scegli Cartella", command=self.choose_folder).grid(row=0, column=2, padx=10, pady=10)
+        tk.Button(self.root, text="Choose Folder", command=self.choose_folder).grid(row=0, column=2, padx=10, pady=10)
 
-        tk.Label(self.root, text="Nome del file:").grid(row=1, column=0, padx=10, pady=10)
+        tk.Label(self.root, text="File's name: (no extension)").grid(row=1, column=0, padx=10, pady=10)
         self.file_entry = tk.Entry(self.root, width=20)
         self.file_entry.grid(row=1, column=1)
 
-        tk.Label(self.root, text="Numero di loop:").grid(row=2, column=0, padx=10, pady=10)
+        tk.Label(self.root, text="Number of loops:").grid(row=2, column=0, padx=10, pady=10)
         self.loop_entry = tk.Entry(self.root, width=5)
         self.loop_entry.grid(row=2, column=1)
 
-        tk.Label(self.root, text="Ritardo tra i loop (s):").grid(row=3, column=0, padx=10, pady=10)
+        tk.Label(self.root, text="Delay between loops (s):").grid(row=3, column=0, padx=10, pady=10)
         self.delay_entry = tk.Entry(self.root, width=5)
         self.delay_entry.grid(row=3, column=1)
 
@@ -61,10 +53,10 @@ class AutoClickerApp:
         self.log_text.grid(row=6, column=0, columnspan=3, padx=10, pady=10)
 
         # Pulsanti di controllo
-        tk.Button(self.root, text="Avvia Registrazione", command=self.recorder.start_recording).grid(row=5, column=0, padx=10, pady=10)
-        tk.Button(self.root, text="Riproduci", command=self.replayer.replay_click_path).grid(row=5, column=1, padx=10, pady=10)
-        tk.Label(self.root, text="premere <<ESC>> da Keyboard per fermare registrazione", font=("Arial", 8), fg="RED").grid(row=4, column=0, padx=10, pady=(0, 5))
-        tk.Button(self.root, text="Esci", command=self.on_close).grid(row=5, column=2, padx=10, pady=10)
+        tk.Button(self.root, text="Start Registration", command=self.recorder.start_recording).grid(row=5, column=0, padx=10, pady=10)
+        tk.Button(self.root, text="Start Simulation ", command=self.replayer.replay_click_path).grid(row=5, column=1, padx=10, pady=10)
+        tk.Label(self.root, text="Click <<ESC>> from Keyboard to stop registration", font=("Arial", 8), fg="RED").grid(row=4, column=0, padx=10, pady=(0, 5))
+        tk.Button(self.root, text="Exit", command=self.on_close).grid(row=5, column=2, padx=10, pady=10)
 
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)  # Salva lo stato alla chiusura
 

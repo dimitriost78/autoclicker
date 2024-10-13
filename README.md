@@ -15,7 +15,7 @@ AutoClickerApp is a Python application for recording and replaying mouse and key
 
 ## Prerequisiti
 
-Ensure you have Python 3.6 or above installed. Additionally, the project uses the following libraries:
+Ensure you have Python 3.12 or above installed. Additionally, the project uses the following libraries:
 
 - `tkinter` (included in Python for creating GUIs)
 - `pynput` (to listen to and simulate mouse and keyboard events)
@@ -24,7 +24,7 @@ Ensure you have Python 3.6 or above installed. Additionally, the project uses th
 To install additional dependencies, you can use `pip`:
 
 ```bash
-pip install pynput pyautogui
+pip install pynput pyautogui tkinter
 ```
 Esegui l'applicazione:
 
@@ -42,7 +42,7 @@ Press Esc to stop recording. The actions are saved in a JSON file in the specifi
 
 - `Replay Actions`:
 
-Click Play to execute the recorded sequence of actions. 
+Click Play to execute the recorded sequence of actions. If need to stop earlier click ESC.
 
 - `Close the Application`:
 

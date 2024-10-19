@@ -47,7 +47,9 @@ class AutoClickerApp:
 
         # Carica i valori salvati nei campi
         self.load_ui_fields()
-
+         # Etichetta per mostrare il conto alla rovescia del timer
+        self.timer_label = tk.Label(self.root, text="Ready", font=('Helvetica', 10), fg="red")
+        self.timer_label.grid(row=4, column=1, padx=10, pady=10)
         # Log display
         self.log_text = tk.Text(self.root, height=10, width=80)
         self.log_text.grid(row=6, column=0, columnspan=3, padx=10, pady=10)
